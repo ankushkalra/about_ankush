@@ -1,0 +1,10 @@
+CREATE TABLE notes(
+  id SERIAL PRIMARY KEY,
+  content TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE model_demo(
+  id SERIAL PRIMARY KEY,
+  message TEXT NOT NULL
+)

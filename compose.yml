@@ -27,6 +27,25 @@ services:
     depends_on:
       db:
         condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+
+  migrate:
+    image: docker.io/library/postgres:17
+    working_dir: /app
+    entrypoint: ["bash", "migrate-container.sh"]
+    environment:
+      PGHOST: db
+      PGUSER: ${POSTGRES_USER}
+      PGPASSWORD: ${POSTGRES_PASSWORD}
+      PGDATABASE: ${POSTGRES_DB}
+    volumes:
+      - ./migrate-container.sh:/app/migrate-container.sh:ro
+      - ./migrations:/app/migrations:ro
+    depends_on:
+      db:
+        condition: service_healthy
+
 
 volumes:
   pgdata:
