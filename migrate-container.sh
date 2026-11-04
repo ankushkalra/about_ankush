@@ -2,6 +2,8 @@
 
 set -e
 
+until pg_isready -q; do sleep 1; done
+
 psql_db() {
   psql -tAq -v ON_ERROR_STOP=1 
 }
