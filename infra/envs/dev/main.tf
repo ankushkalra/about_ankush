@@ -26,6 +26,7 @@ module "vm" {
   location = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
   app_subnet_id = module.network.app_subnet_id
+  ssh_allowed_cidrs = var.ssh_allowed_cidrs
   name_suffix = "dev"
 }
 
