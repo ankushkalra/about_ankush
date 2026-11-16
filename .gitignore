@@ -11,3 +11,8 @@ wheels/
 
 # secrets
 .env
+
+#terraform
+*.tfvars
+.terraform/
+*.tfstate*

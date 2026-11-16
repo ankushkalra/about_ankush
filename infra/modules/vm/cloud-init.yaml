@@ -1,0 +1,16 @@
+#cloud-config
+package_update: true
+
+packages:
+  - podman
+  - podman-compose
+  - uidmap
+
+write_files:
+  - path: /etc/sysctl.d/99-rootless-ports.conf
+    content: |
+      net.ipv4.ip_unprivileged_port_start=80
+
+runcmd:
+  - sysctl --system
+  - loginctl enable-linger azureuser
