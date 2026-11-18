@@ -27,6 +27,14 @@ services:
     depends_on:
       db:
         condition: service_healthy
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports: ["80:80", "443:443"]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
 
   migrate:
     image: docker.io/library/postgres:17
@@ -47,3 +55,5 @@ services:
 
 volumes:
   pgdata:
+  caddy_data:
+  caddy_config:
