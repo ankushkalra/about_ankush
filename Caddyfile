@@ -1,4 +1,4 @@
-ankushkalra.com {
+api-origin.ankushkalra.com {
     header -Server
     header -X-Powered-By
     reverse_proxy api:8000
