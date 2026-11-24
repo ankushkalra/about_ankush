@@ -1,13 +1,13 @@
 terraform {
   required_version = ">= 1.6"
   
-  backend "azurerm" {
-    resource_group_name = "rg-tfstate-learning"
-    storage_account_name = "sttfstatepxcm"
-    container_name = "tfstate"
-    key = "dev.terraform.tfstate"
-    use_azuread_auth = true
-  }
+  # backend "azurerm" {
+  #   resource_group_name = "rg-tfstate-learning"
+  #   storage_account_name = "sttfstatepxcm"
+  #   container_name = "tfstate"
+  #   key = "dev.terraform.tfstate"
+  #   use_azuread_auth = true
+  # }
 
 
   required_providers {
